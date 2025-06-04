@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OS Progress Tracker - CS 5402</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header with Course Info and Overall Progress -->
+        <header class="header">
+            <div class="container">
+                <div class="course-info">
+                    <h1 class="course-title">Operating Systems</h1>
+                    <div class="course-details">
+                        <span class="course-code">CS 5402</span>
+                        <span class="course-program">B.Tech CSE</span>
+                        <span class="course-semester">Semester IV</span>
+                    </div>
+                </div>
+                <div class="overall-progress">
+                    <div class="progress-info">
+                        <span class="progress-label">Overall Progress</span>
+                        <span class="progress-percentage">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="0"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <div class="container">
+                <div class="content-wrapper">
+                    <!-- Modules Section -->
+                    <div class="modules-section">
+                        <div class="section-header">
+                            <h2>Course Modules</h2>
+                            <button class="btn btn--secondary btn--sm" id="resetProgress">Reset All Progress</button>
+                        </div>
+                        <div class="modules-grid" id="modulesContainer">
+                            <!-- Modules will be dynamically loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Search Sidebar -->
+                    <aside class="search-sidebar">
+                        <div class="search-header">
+                            <h3>Research Tools</h3>
+                            <button class="sidebar-toggle" id="sidebarToggle">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                        
+                        <div class="search-content">
+                            <div class="search-section">
+                                <h4>Google Search</h4>
+                                <div class="search-input-group">
+                                    <input type="text" class="form-control" id="googleSearchInput" placeholder="Search OS topics...">
+                                    <button class="btn btn--primary btn--sm" id="googleSearchBtn">Search</button>
+                                </div>
+                                <div class="search-embed">
+                                    <iframe id="googleSearchFrame" 
+                                            src="https://www.google.com/search?igu=1&q=operating+systems+concepts" 
+                                            frameborder="0">
+                                    </iframe>
+                                </div>
+                            </div>
+
+                            <div class="search-section">
+                                <h4>Blackbox AI</h4>
+                                <div class="search-input-group">
+                                    <input type="text" class="form-control" id="blackboxSearchInput" placeholder="Ask AI about OS...">
+                                    <button class="btn btn--primary btn--sm" id="blackboxSearchBtn">Ask AI</button>
+                                </div>
+                                <div class="search-embed">
+                                    <iframe id="blackboxSearchFrame" 
+                                            src="https://www.blackbox.ai" 
+                                            frameborder="0">
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>Made with ❤️ by <a href="https://water-plane.github.io/WaterPlane" target="_blank">WaterPlane</a></p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Progress Status Modal -->
+    <div class="modal" id="statusModal">
+        <div class="modal-content">
+            <h3>Select Progress Status</h3>
+            <div class="status-options">
+                <button class="status-btn" data-status="0">Not Started</button>
+                <button class="status-btn" data-status="25">In Progress</button>
+                <button class="status-btn" data-status="50">Review</button>
+                <button class="status-btn" data-status="100">Completed</button>
+            </div>
+            <button class="btn btn--secondary btn--sm" id="closeModal">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Add Topic Modal -->
+    <div class="modal" id="addTopicModal">
+        <div class="modal-content">
+            <h3>Add New Topic</h3>
+            <input type="text" class="form-control" id="newTopicInput" placeholder="Enter topic name...">
+            <div class="modal-actions">
+                <button class="btn btn--primary" id="confirmAddTopic">Add Topic</button>
+                <button class="btn btn--secondary" id="cancelAddTopic">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
